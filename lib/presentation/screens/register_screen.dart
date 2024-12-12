@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_autotalleres/presentation/screens/dasboard_screen.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -13,6 +15,33 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   final GlobalKey<FormBuilderState> _formkey = GlobalKey<FormBuilderState>();
   final SupabaseClient supabase = Supabase.instance.client;
+
+  void getSession() {
+    supabase.auth.onAuthStateChange.listen((data) {
+      final AuthChangeEvent event = data.event;
+      final Session? session = data.session;
+      print('event: $event, session: $session');
+      switch (event) {
+        case AuthChangeEvent.initialSession:
+        // handle initial session
+        case AuthChangeEvent.signedIn:
+          Navigator.pushReplacementNamed(context, DashboardScreen.routename);
+        // handle signed in
+        case AuthChangeEvent.signedOut:
+        // handle signed out
+        case AuthChangeEvent.passwordRecovery:
+        // handle password recovery
+        case AuthChangeEvent.tokenRefreshed:
+        // handle token refreshed
+        case AuthChangeEvent.userUpdated:
+        // handle user updated
+        case AuthChangeEvent.userDeleted:
+        // handle user deleted
+        case AuthChangeEvent.mfaChallengeVerified:
+        // handle mfa challenge verified
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +107,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                     try {
                       await supabase.auth.signUp(
+                        emailRedirectTo: kIsWeb
+                            ? null
+                            : 'io.supabase.flutterapp://login-callback',
                         email: email,
                         password: password,
                       );
