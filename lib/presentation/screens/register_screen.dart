@@ -25,7 +25,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
         case AuthChangeEvent.initialSession:
         // handle initial session
         case AuthChangeEvent.signedIn:
-          Navigator.pushReplacementNamed(context, DashboardScreen.routename);
+          if (session != null) {
+            if (mounted) {
+              Navigator.popAndPushNamed(context, DashboardScreen.routename);
+            }
+          }
         // handle signed in
         case AuthChangeEvent.signedOut:
         // handle signed out

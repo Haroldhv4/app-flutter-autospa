@@ -1,4 +1,4 @@
-package com.example.flutter_autotalleres
+package com.autotalleres.spa
 
 import io.flutter.embedding.android.FlutterActivity
 
