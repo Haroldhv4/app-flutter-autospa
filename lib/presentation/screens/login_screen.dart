@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_autotalleres/core/utils/size_utils.dart';
 import 'package:flutter_autotalleres/presentation/screens/dasboard_screen.dart';
 import 'package:flutter_autotalleres/presentation/screens/register_screen.dart';
+import 'package:flutter_autotalleres/theme/theme_helper.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -53,9 +55,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Image.asset('assets/logo.png', fit: BoxFit.cover),
                   ),
                 ),
-                SizedBox(
-                  height: size.height * 0.05,
+                SizedBox(height: 60.h),
+                Text(
+                  "Login",
+                  style: theme.textTheme.titleMedium,
                 ),
+                SizedBox(height: 4.h),
+                Text("Bienvenido a Autotalleres S.P.A",
+                    style: theme.textTheme.bodyMedium),
+                SizedBox(height: 20.h),
                 Container(
                   padding: const EdgeInsets.all(20),
                   child: FormBuilderTextField(
@@ -120,21 +128,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: const Text('Iniciar sesión'),
                 ),
-                SizedBox(
-                  height: size.height * 0.05,
-                ),
+                SizedBox(height: 44.h),
                 GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, RegisterScreen.routename);
-                  },
-                  child: const Text(
-                    '¿No tienes una cuenta? Regístrate aquí',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ),
+                    onTap: () {
+                      Navigator.pushNamed(context, RegisterScreen.routename);
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "¿No tienes una cuenta?",
+                          style: theme.textTheme.titleSmall,
+                        ),
+                        SizedBox(height: 8.h),
+                        Text(
+                          "Registrate aqui",
+                          style: theme.textTheme.titleSmall,
+                        )
+                      ],
+                    )),
                 SizedBox(
                   height: size.height * 0.05,
                 ),
