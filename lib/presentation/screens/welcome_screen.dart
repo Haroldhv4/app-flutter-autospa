@@ -55,24 +55,31 @@ class WelcomeScreen extends StatelessWidget {
                     width: 250.h,
                     margin: EdgeInsets.only(
                       left: 28.h,
-                      bottom: 88.h,
+                      bottom: 20.h,
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          "Taller de Pintura",
+                          "TallerXpert",
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: theme.textTheme.displaySmall!.copyWith(
-                            height: 1.20,
+                            height: 1.80,
                           ),
                         ),
-                        SizedBox(height: 8.h),
+                        SizedBox(height: 10.h),
                         Text(
-                          "Detallado con precisión para conductores que valoran la perfección.",
+                          "Esta app movil fue desarrollada con el fin de automatizar el proceso de ordenes de trabajo para la enderezada y pintura en Autotalleres S.P.A",
                           style: theme.textTheme.bodyMedium,
-                        )
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Text(
+                          "Esta app te permitira cotizar la reparacion y pintura de tu vehiculo y generar una orden de trabajo",
+                          style: theme.textTheme.bodyMedium,
+                        ),
                       ],
                     ),
                   )
@@ -90,13 +97,13 @@ class WelcomeScreen extends StatelessWidget {
   Widget _buildCallToAction(BuildContext context) {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: 28.h),
+      padding: EdgeInsets.symmetric(horizontal: 30.h),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           CustomElevatedButton(
-            text: "Comenzar Ahora",
-            margin: EdgeInsets.only(bottom: 18.h),
+            text: "Cotiza Ahora",
+            margin: EdgeInsets.only(bottom: 40.h),
             onPressed: () {
               Navigator.pushNamed(context, LoginScreen.routename);
             },

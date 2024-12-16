@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_autotalleres/presentation/screens/login_screen.dart';
+import 'package:flutter_autotalleres/usuario/user_form.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -60,8 +61,8 @@ class DashboardScreen extends StatelessWidget {
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                     children: [
-                      _buildGridButton(context, Icons.car_repair, "Reparación",
-                          '/reparacion'),
+                      _buildGridButton(context, Icons.car_repair,
+                          "Crear Usuario", UserFormScreen.routename),
                       _buildGridButton(
                           context, Icons.format_paint, "Pintura", '/pintura'),
                       _buildGridButton(
@@ -93,9 +94,9 @@ class DashboardScreen extends StatelessWidget {
         const SizedBox(height: 10),
         TextButton(
           onPressed: () {
-            Navigator.of(context).pushNamed(route);
+            Navigator.of(context)
+                .pushNamed(route); // Aquí usamos 'route' directamente
           },
-          // ignore: sort_child_properties_last
           child: Text(label),
           style: TextButton.styleFrom(
             foregroundColor: Colors.white,

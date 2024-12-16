@@ -6,6 +6,7 @@ import 'package:flutter_autotalleres/presentation/screens/login_screen.dart';
 import 'package:flutter_autotalleres/presentation/screens/register_screen.dart';
 import 'package:flutter_autotalleres/presentation/screens/welcome_screen.dart';
 import 'package:flutter_autotalleres/theme/theme_helper.dart';
+import 'package:flutter_autotalleres/usuario/user_form.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
             LoginScreen.routename: (context) => const LoginScreen(),
             DashboardScreen.routename: (context) => const DashboardScreen(),
             RegisterScreen.routename: (context) => const RegisterScreen(),
+            UserFormScreen.routename: (context) => const UserFormScreen(),
           },
         );
       },
